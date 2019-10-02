@@ -2,10 +2,11 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, 
+    <meta name="viewport" content="width=device-width,
           initial-scale=1.0" charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @RenderSection("styles", false)
 </head>
 <body>
     <div class="container">
@@ -40,5 +41,6 @@
     </div>
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("ScriptPage", false)
 </body>
 </html>
