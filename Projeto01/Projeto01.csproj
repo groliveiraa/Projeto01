@@ -306,6 +306,7 @@
     </Compile>
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Fabricante.cs" />
+    <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
