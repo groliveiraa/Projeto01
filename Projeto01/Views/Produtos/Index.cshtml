@@ -5,7 +5,7 @@
     ViewBag.Title = "Listagem de PRODUTOS";
 }
 
-@if (TempData["Message"] != null)
+@if (@TempData["Message"] != null)
 {
     <div class="alert alert-success" role="alert">
         @TempData["Message"]
@@ -14,7 +14,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        Relação de Produtos registrados
+        Relação de PRODUTOS registrados
     </div>
     <div class="panel-body">
         <table class="table table-striped table-hover">
@@ -33,25 +33,25 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProdutoId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Categoria)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fabricante)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Alterar", "Edit", new { id = item.ProdutoId }) |
-                        @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoId }) |
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ProdutoId })
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProdutoId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fabricante.Nome)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Alterar", "Edit", new { id = item.ProdutoId }) |
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoId }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ProdutoId })
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
@@ -60,6 +60,7 @@
         @Html.ActionLink("Registrar um novo PRODUTO", "Create", null, new { @class = "btn btn-success" })
     </div>
 </div>
+
 
 @section styles{
     <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet">
@@ -70,11 +71,11 @@
     <script src="@Url.Content("~/scripts/DataTables/dataTables.bootstrap.js")"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liProdutos').addClass("active");
             $('.table').dataTable({
                 "order": [[1, "asc"]]
             });
-             $('li').removeClass("active");
-             $('#liProdutos').addClass("active");
         });
     </script>
 }
