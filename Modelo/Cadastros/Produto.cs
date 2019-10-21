@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Projeto01.Models
+namespace Modelo.Cadastros
 {
     public class Produto
     {
