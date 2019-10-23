@@ -1,11 +1,8 @@
 ﻿using Modelo.Cadastros;
-using Projeto01.Contexts;
-using System;
-using System.Collections.Generic;
+using Persistencia.Contexts;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Projeto01.Controllers
@@ -20,13 +17,12 @@ namespace Projeto01.Controllers
             return View(context.Fabricantes.OrderBy(c => c.Nome));
         }
 
-        // GET: Fabricantes/Create
+        // GET: Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Fabricantes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Fabricante fabricante)
@@ -36,7 +32,7 @@ namespace Projeto01.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Fabricantes/Edit
+        // GET: Fabricantes/Edit/5
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -51,7 +47,7 @@ namespace Projeto01.Controllers
             return View(fabricante);
         }
 
-        // POST: Fabricantes/Edit
+        // POST: Fabricantes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Fabricante fabricante)
@@ -65,14 +61,14 @@ namespace Projeto01.Controllers
             return View(fabricante);
         }
 
-        // GET: Fabricantes/Details
+        // GET: Testes/Details/5
         public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fabricante fabricante = context.Fabricantes.Where(f => f.FabricanteId == id).Include("Produtos.Categoria").First();
+            Fabricante fabricante = context.Fabricantes.Find(id);
             if (fabricante == null)
             {
                 return HttpNotFound();
@@ -80,7 +76,7 @@ namespace Projeto01.Controllers
             return View(fabricante);
         }
 
-        // GET: Fabricantes/Delete
+        // GET: Fabricantes/Delete/5
         public ActionResult Delete(long? id)
         {
             if (id == null)
@@ -95,7 +91,7 @@ namespace Projeto01.Controllers
             return View(fabricante);
         }
 
-        // POST: Fabricantes/Delete
+        // POST: Fabricantes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
