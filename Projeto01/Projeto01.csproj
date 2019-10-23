@@ -333,6 +333,8 @@
     <Content Include="Views\Produtos\Details.cshtml" />
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\_PorFabricante.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Produtos\_PartialDetailsContentPanel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
