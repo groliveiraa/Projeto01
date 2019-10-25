@@ -255,6 +255,7 @@
     <Content Include="Scripts\DataTables\responsive.foundation.min.js" />
     <Content Include="Scripts\DataTables\responsive.jqueryui.js" />
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\datepicker-pt-BR.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -277,7 +278,26 @@
     <Content Include="Scripts\jquery-2.2.4.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\package.json" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\AUTHORS.txt" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\external\jquery\jquery.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\index.html" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.min.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.structure.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.theme.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\LICENSE.txt" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -335,6 +355,7 @@
     <Content Include="Views\Produtos\_PorFabricante.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Produtos\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Produtos\_PartialEditContentPanel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

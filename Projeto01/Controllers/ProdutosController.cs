@@ -21,7 +21,7 @@ namespace Projeto01.Controllers
             return View(produtoServico.ObterProdutosClassificadosPorNome());
         }
 
-        private ActionResult ObterVisaoProdutorPorId(long? id)
+        private ActionResult ObterVisaoProdutoPorId(long? id)
         {
             if (id == null)
             {
@@ -38,7 +38,13 @@ namespace Projeto01.Controllers
         // GET: Produtos/Details/5
         public ActionResult Details(long? id)
         {
-            return ObterVisaoProdutorPorId(id);
+            return ObterVisaoProdutoPorId(id);
+        }
+
+        // GET: Produtos/Delete/5
+        public ActionResult Delete(long? id)
+        {
+            return ObterVisaoProdutoPorId(id);
         }
 
         private void PopularViewBag(Produto produto = null)
@@ -53,6 +59,13 @@ namespace Projeto01.Controllers
                 ViewBag.CategoriaId = new SelectList(categoriaServico.ObterCategoriasClassificadasPorNome(), "CategoriaId", "Nome", produto.CategoriaId);
                 ViewBag.FabricanteId = new SelectList(fabricanteServico.ObterFabricantesClassificadosPorNome(), "FabricanteId", "Nome", produto.FabricanteId);
             }
+        }
+
+        // GET: Produtos/Edit/5
+        public ActionResult Edit(long? id)
+        {
+            PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
+            return ObterVisaoProdutoPorId(id);
         }
 
         // GET: Produtos/Create
@@ -71,10 +84,12 @@ namespace Projeto01.Controllers
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
+                PopularViewBag(produto);
                 return View(produto);
             }
             catch
             {
+                PopularViewBag(produto);
                 return View(produto);
             }
         }
@@ -85,24 +100,12 @@ namespace Projeto01.Controllers
         {
             return GravarProduto(produto);
         }
-        // GET: Produtos/Edit
-        public ActionResult Edit(long? id)
-        {
-            PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
-            return ObterVisaoProdutorPorId(id);
-        }
 
         // POST: Produtos/Edit/5
         [HttpPost]
         public ActionResult Edit(Produto produto)
         {
             return GravarProduto(produto);
-        }
-
-        // GET: Produtos/Delete/5
-        public ActionResult Delete(long? id)
-        {
-            return ObterVisaoProdutorPorId(id);
         }
 
         // POST: Produtos/Delete/5
