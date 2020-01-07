@@ -10,23 +10,20 @@ namespace Projeto01.DAL
 {
     public class IndentityDbContextAplicacao : IdentityDbContext<Usuario>
     {
-        public class IdentityDbContextAplicacao : IdentityDbContext<Usuario>
+        public IndentityDbContextAplicacao() : base("IdentityDb") { }
+
+        static IndentityDbContextAplicacao()
         {
-            public IdentityDbContextAplicacao() : base("IdentityDb") { }
-
-            static IdentityDbContextAplicacao()
-            {
-                Database.SetInitializer<IdentityDbContextAplicacao>(new IdentityDbInit());
-            }
-
-            public static IdentityDbContextAplicacao Create()
-            {
-                return new IdentityDbContextAplicacao();
-            }
+            Database.SetInitializer<IndentityDbContextAplicacao>(new IdentityDbInit());
         }
 
-        public class IdentityDbInit : DropCreateDatabaseIfModelChanges<IdentityDbContextAplicacao>
+        public static IndentityDbContextAplicacao Create()
         {
+            return new IndentityDbContextAplicacao();
         }
+    }
+
+    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<IndentityDbContextAplicacao>
+    {
     }
 }

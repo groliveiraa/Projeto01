@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using static Projeto01.DAL.IndentityDbContextAplicacao;
+using Projeto01.DAL;
 
 namespace Projeto01.Infraestrutura
 {
@@ -18,7 +18,7 @@ namespace Projeto01.Infraestrutura
         }
         public static GerenciadorUsuario Create(IdentityFactoryOptions<GerenciadorUsuario> options, IOwinContext context)
         {
-            IdentityDbContextAplicacao db = context.Get<IdentityDbContextAplicacao>();
+            IndentityDbContextAplicacao db = context.Get<IndentityDbContextAplicacao>();
             GerenciadorUsuario manager = new GerenciadorUsuario(new UserStore<Usuario>(db));
             return manager;
         }
