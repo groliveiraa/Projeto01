@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Projeto01.Areas.Seguranca.Models;
 using Projeto01.Infraestrutura;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,39 @@ namespace Projeto01.Areas.Seguranca.Controllers
         {
             return View(GerenciadorUsuario.Users);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(UsuarioViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Usuario user = new Usuario { UserName = model.Nome, Email = model.Email };
+                IdentityResult result = GerenciadorUsuario.Create(user, model.Senha);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    AddErrorsFromResult(result);
+                }
+            }
+            return View(model);
+        }
+
+        private void AddErrorsFromResult(IdentityResult result)
+        {
+            foreach (string error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
+        }
+
         private GerenciadorUsuario GerenciadorUsuario
         {
             get
